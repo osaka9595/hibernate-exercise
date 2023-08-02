@@ -10,8 +10,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.highkight_sql"></property>
+        <property name="hibernate.highkight_sql">true</property>
     
-    <mapping class="web.member.pojo.Member" />
+        <mapping class="web.member.pojo.Member" />
     </session-factory>
 </hibernate-configuration>
