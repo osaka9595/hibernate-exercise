@@ -7,7 +7,7 @@
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/JAVA_FRAMEWORK?serverTimezone=Asia/Taipei</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">852634</property>
-		<!-- 上面4行換下面這一行                                                   這邊隊到context.xml 的name    -->
+		<!-- 上面4行換下面這一行                                                   這邊對到context.xml 的name    -->
 <!-- 		<property name="hibernate.connection.datasource">java:comp/env/jdbc/javaFramework</property> -->
 		
 		
@@ -17,6 +17,9 @@
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.highkight_sql">true</property>
 
-		<mapping class="web.member.pojo.Member" />
+		<mapping class="web.member.entity.Member" />
+		<mapping class="web.emp.entity.Emp" />
+		<mapping class="web.emp.entity.Dept" />
+		
 	</session-factory>
 </hibernate-configuration>

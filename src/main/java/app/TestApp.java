@@ -2,75 +2,30 @@ package app;
 
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
-import org.hibernate.Hibernate;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import core.util.HibernateUtil;
-import web.member.pojo.Member;
+import web.emp.entity.Dept;
+import web.emp.entity.Emp;
+import web.member.entity.Member;
 
 public class TestApp {
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		
-		//select USERNAME,NICKNAME
-		CriteriaBuilder criteriaBuilder =session.getCriteriaBuilder();
-		CriteriaQuery<Member> criteriaQuery = criteriaBuilder.createQuery(Member.class);
-		//from MEMBER
-		Root<Member> root = criteriaQuery.from(Member.class);
-		//where USERNAME =? and PASSWORD =?
-		criteriaQuery.where(criteriaBuilder.and(
-				criteriaBuilder.equal(root.get("username"),"admin"),
-				criteriaBuilder.equal(root.get("password"),"P@ssw0rd")
-				
-				));
+		Emp emp = session.get(Emp.class,7369);
+		Dept dept = emp.getDept();
+		List<Emp> emps = dept.getEmps();
+		for (Emp tmp: emps) {
+			System.out.println(tmp.getEname());
+		}
 		
-		//select USENAME, NICKNAME
-		criteriaQuery.multiselect(root.get("username"),root.get("nickname"));
-		//order by  ID
-		criteriaQuery.orderBy(criteriaBuilder.asc(root.get("id")));
-		
-		Member member = session.createQuery(criteriaQuery).uniqueResult();
-		System.out.println(member.getNickname());
-		
+	
 	}
-		
-		
-		
-		
-		
-		
-		
-		
-//		TestApp app = new TestApp();
-//		app.selectALL().forEach(member-> System.out.println(member.getNickname());
-//		for(Member member : app.selectALL()) {
-//			System.out.println(member.getNickname());
-//		}
-//	}
-//		Member member = new Member();
-//		member.setUsername("使用者名稱");
-//		member.setPassword("密碼");
-//		System.out.println(app.deleteById(3));
-//		member.setId(1);
-//		member.setPass(false);
-//		member.setRoleId(2);
-//		System.out.println(app.updateById(member));
-//		app.insert(member);
-//		System.out.println(member.getId());
-
-
-
-//		System.out.println(app.selectById(2).getNickname());
-//	}
 
 	public Integer insert(Member member) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -135,6 +90,7 @@ public class TestApp {
 	}
 	
 	public Member selectById(Integer id) {
+
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		try {
@@ -149,6 +105,8 @@ public class TestApp {
 			return null;
 		}
   }
+	
+	
 	public List<Member>selectALL() {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();

@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import web.member.dao.MemberDao;
-import web.member.pojo.Member;
+import web.member.entity.Member;
 
 public class MemberDaoImpl implements MemberDao {
 
@@ -79,7 +79,7 @@ public class MemberDaoImpl implements MemberDao {
 		     .setParameter("nickname", member.getNickname())
 		     .setParameter("pass", member.getPass())
 		     .setParameter("roleId", member.getRoleId())
-		     .setParameter("update", member.getUpdater())
+		     .setParameter("updater", member.getUpdater())
 		     .setParameter("username", member.getUsername())
              .executeUpdate();
 		   
