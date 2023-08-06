@@ -3,12 +3,12 @@
                                          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
-		<!-- <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property> -->
-		<!-- <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/JAVA_FRAMEWORK?serverTimezone=Asia/Taipei</property> -->
-		<!-- <property name="hibernate.connection.username">root</property> -->
-		<!-- <property name="hibernate.connection.password">852634</property> -->
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/JAVA_FRAMEWORK?serverTimezone=Asia/Taipei</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">852634</property>
 		<!-- 上面4行換下面這一行                                                   這邊隊到context.xml 的name    -->
-		<property name="hibernate.connection.datasource">java:comp/env/jdbc/javaFramework</property>
+<!-- 		<property name="hibernate.connection.datasource">java:comp/env/jdbc/javaFramework</property> -->
 		
 		
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>

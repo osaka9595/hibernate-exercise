@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 		}
 
 		try {
-			beginTransaction();
+			beginTransation();
 			if (dao.selectByUsername(member.getUsername()) != null) {
 				member.setMessage("帳號重複");
 				member.setSuccessful(false);
