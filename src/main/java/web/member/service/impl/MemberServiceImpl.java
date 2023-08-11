@@ -2,12 +2,16 @@ package web.member.service.impl;
 
 import java.util.List;
 
+
+import org.springframework.stereotype.Component;
+
 import web.member.dao.MemberDao;
 import web.member.dao.impl.MemberDaoImpl;
 import web.member.entity.Member;
 import web.member.service.MemberService;
 
 public class MemberServiceImpl implements MemberService {
+	
 	private MemberDao dao;
 
 	public MemberServiceImpl() {
